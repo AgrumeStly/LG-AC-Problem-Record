@@ -1,0 +1,24 @@
+#include<cstdio>
+using namespace std;
+
+int main()
+{
+	int a[10001][4], n, x, y, flag = -1;
+	scanf("%d", &n);
+	for(int i = 1; i <= n; i++)
+	{
+		scanf("%d%d%d%d", &a[i][0], &a[i][1], &a[i][2], &a[i][3]);
+		a[i][2] += a[i][0];
+		a[i][3] += a[i][1];
+	}
+	scanf("%d%d", &x, &y);
+	for(int i = n; i >= 1; i--)
+		if(x >= a[i][0] && y >= a[i][1] && x <= a[i][2] && y <= a[i][3])
+		{
+			printf("%d", i);
+			flag = 1;
+			break;
+		}
+		if(flag == -1)printf("%d", flag);
+	return 0;
+}
